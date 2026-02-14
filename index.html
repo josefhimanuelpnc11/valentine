@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Valentine 2026</title>
+    <style>
+      .noscript-wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 24px;
+        min-height: 100vh;
+        display: grid;
+        align-content: center;
+      }
+
+      .noscript-card {
+        background: #e6cfc3;
+        border-radius: 28px;
+        padding: 32px 24px;
+        color: #4a2f27;
+        box-shadow: 0 12px 32px rgba(74, 47, 39, 0.12);
+        font-family: Inter, system-ui, sans-serif;
+      }
+
+      .noscript-title {
+        margin: 0;
+        font-family: Righteous, cursive;
+        letter-spacing: 0.04em;
+        font-size: 34px;
+      }
+
+      .noscript-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+
+      .noscript-btn {
+        display: inline-block;
+        border-radius: 999px;
+        padding: 14px 34px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .noscript-yes {
+        background: #e56b86;
+        color: #f3eae2;
+      }
+
+      .noscript-no {
+        border: 2px solid #4a2f27;
+        color: #4a2f27;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <main class="noscript-wrap">
+        <section class="noscript-card" aria-label="Valentine registration">
+          <h1 class="noscript-title">Happy Valentine 2026</h1>
+          <p>Pick your path and jump into the gift swap list.</p>
+          <div class="noscript-actions">
+            <a class="noscript-btn noscript-yes" href="/registration">Yes</a>
+            <a class="noscript-btn noscript-no" href="/registration">No</a>
+          </div>
+        </section>
+      </main>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
