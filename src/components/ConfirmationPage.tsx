@@ -49,14 +49,15 @@ function ConfirmationPage({ message }: ConfirmationPageProps) {
           <h3 className="song-title">Hey there My Valentine, Here's a Song for you!</h3>
           <p className="song-artist">Free Love by Honne!</p>
           <div className="video-frame">
-            <iframe
-              src="https://www.youtube.com/embed/w-EoAXhKOLk?autoplay=1"
-              title="Free Love by Honne"
-              loading="eager"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
+            <video
+              src={`${import.meta.env.BASE_URL}honne-free-love.mp4`}
+              controls
+              autoPlay
+              playsInline
+              preload="auto"
+            >
+              Your browser does not support the video element.
+            </video>
           </div>
         </section>
       </div>

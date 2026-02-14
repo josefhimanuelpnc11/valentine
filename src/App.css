@@ -579,10 +579,10 @@
   background: #000;
 }
 
-.video-frame iframe {
+.video-frame video {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  border-radius: 12px;
   border: 0;
 }
 
