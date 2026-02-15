@@ -2,11 +2,12 @@ import { useMemo } from 'react'
 
 type ConfirmationPageProps = {
   message: string
+  videoSrc: string
 }
 
 const CONFETTI_COLORS = ['#E56B86', '#C68642']
 
-function ConfirmationPage({ message }: ConfirmationPageProps) {
+function ConfirmationPage({ message, videoSrc }: ConfirmationPageProps) {
   const confettiBits = useMemo(
     () =>
       Array.from({ length: 14 }, (_, index) => ({
@@ -50,7 +51,7 @@ function ConfirmationPage({ message }: ConfirmationPageProps) {
           <p className="song-artist">Free Love by Honne!</p>
           <div className="video-frame">
             <video
-              src={`${import.meta.env.BASE_URL}honne-free-love.mp4`}
+              src={videoSrc}
               controls
               autoPlay
               playsInline
