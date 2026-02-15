@@ -5,33 +5,45 @@ type ConfirmationPageProps = {
   videoSrc: string
 }
 
-const CONFETTI_COLORS = ['#E56B86', '#C68642']
+const CONFETTI_COLORS = ['#E56B86', '#C68642', '#f0b8c4', '#4A2F27', '#e8a87c']
 
 function ConfirmationPage({ message, videoSrc }: ConfirmationPageProps) {
   const confettiBits = useMemo(
     () =>
-      Array.from({ length: 14 }, (_, index) => ({
-        id: index,
-        left: `${6 + index * 6.3}%`,
-        delay: `${(index % 7) * 70}ms`,
-        color: CONFETTI_COLORS[index % CONFETTI_COLORS.length],
+      Array.from({ length: 60 }, (_, i) => ({
+        id: i,
+        left: `${(i * 1.7) % 100}%`,
+        delay: `${(i % 12) * 80}ms`,
+        color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+        width: 6 + (i % 4) * 3,
+        height: 10 + (i % 5) * 4,
+        drift: (i % 3 === 0) ? 'confettiFallLeft' : (i % 3 === 1) ? 'confettiFallRight' : 'confettiFallCenter',
       })),
     [],
   )
 
   return (
     <section className="confirm-fullscreen" aria-label="Confirmation page">
+      {/* Fullscreen confetti burst */}
+      <div className="confetti-fullscreen" aria-hidden="true">
+        {confettiBits.map((bit) => (
+          <span
+            key={bit.id}
+            className="confetti-piece"
+            style={{
+              left: bit.left,
+              animationDelay: bit.delay,
+              animationName: bit.drift,
+              backgroundColor: bit.color,
+              width: `${bit.width}px`,
+              height: `${bit.height}px`,
+            }}
+          />
+        ))}
+      </div>
+
       <div className="confirm-inner">
         <article className="confirm-card">
-          <div className="confetti-layer" aria-hidden="true">
-            {confettiBits.map((bit) => (
-              <span
-                key={bit.id}
-                className="confetti"
-                style={{ left: bit.left, animationDelay: bit.delay, backgroundColor: bit.color }}
-              />
-            ))}
-          </div>
 
           <div className="confirm-check" aria-hidden="true">
             <svg viewBox="0 0 52 52" fill="none">

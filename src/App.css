@@ -39,68 +39,92 @@
 .deco-sparkle { color: var(--accent); }
 .deco-ring { color: var(--primary); }
 
-/* ---- Size variants ---- */
-.deco-xs { width: 16px; height: 16px; }
-.deco-sm { width: 26px; height: 26px; }
-.deco-md { width: 40px; height: 40px; }
-.deco-lg { width: 58px; height: 58px; }
+/* ---- Size variants (mobile-first, generous) ---- */
+.deco-xs { width: 22px; height: 22px; }
+.deco-sm { width: 34px; height: 34px; }
+.deco-md { width: 50px; height: 50px; }
+.deco-lg { width: 68px; height: 68px; }
 
 /* ---- Float (gentle vertical bob) ---- */
 .deco-float-a {
-  top: 8%; left: 6%;
+  top: 6%; left: 8%;
   animation: floatA 7s ease-in-out 0.2s infinite;
 }
 .deco-float-b {
-  top: 22%; right: 7%;
+  top: 18%; right: 10%;
   animation: floatB 9s ease-in-out 1s infinite;
+}
+.deco-float-c {
+  bottom: 18%; right: 14%;
+  animation: floatA 8s ease-in-out 2.5s infinite;
+}
+.deco-float-d {
+  top: 48%; left: 12%;
+  animation: floatB 10s ease-in-out 0.8s infinite;
 }
 
 /* ---- Sway (lateral pendulum) ---- */
 .deco-sway-a {
-  bottom: 28%; left: 4%;
+  bottom: 32%; left: 6%;
   animation: swayA 11s ease-in-out 0.5s infinite;
 }
 .deco-sway-b {
-  top: 60%; right: 3%;
+  top: 55%; right: 8%;
   animation: swayB 10s ease-in-out 2s infinite;
 }
 
 /* ---- Drift (diagonal fall) ---- */
 .deco-drift-a {
-  top: 5%; right: 18%;
+  top: 3%; right: 15%;
   animation: driftDown 14s linear 0s infinite;
 }
 .deco-drift-b {
-  top: -5%; left: 30%;
+  top: -5%; left: 22%;
   animation: driftDown 18s linear 4s infinite;
 }
 .deco-drift-c {
-  top: -8%; right: 40%;
+  top: -8%; right: 35%;
   animation: driftDown 12s linear 7s infinite;
+}
+.deco-drift-d {
+  top: -3%; left: 55%;
+  animation: driftDown 16s linear 2s infinite;
 }
 
 /* ---- Twinkle (scale + opacity pulse) ---- */
 .deco-twinkle-a {
-  top: 15%; right: 14%;
+  top: 12%; right: 18%;
   animation: twinkle 3s ease-in-out 0.3s infinite;
 }
 .deco-twinkle-b {
-  bottom: 35%; left: 12%;
+  bottom: 28%; left: 15%;
   animation: twinkle 4s ease-in-out 1.5s infinite;
 }
 .deco-twinkle-c {
-  bottom: 12%; right: 22%;
+  bottom: 10%; right: 20%;
   animation: twinkle 3.5s ease-in-out 2.8s infinite;
+}
+.deco-twinkle-d {
+  top: 38%; right: 12%;
+  animation: twinkle 3.2s ease-in-out 0.8s infinite;
+}
+.deco-twinkle-e {
+  top: 70%; left: 18%;
+  animation: twinkle 4.5s ease-in-out 3.5s infinite;
 }
 
 /* ---- Spin (slow rotation) ---- */
 .deco-spin-a {
-  bottom: 14%; right: 5%;
+  bottom: 12%; right: 10%;
   animation: spinDrift 20s linear 0s infinite;
 }
 .deco-spin-b {
-  top: 40%; left: 2%;
+  top: 35%; left: 6%;
   animation: spinDrift 16s linear 3s infinite reverse;
+}
+.deco-spin-c {
+  bottom: 45%; right: 22%;
+  animation: spinDrift 18s linear 6s infinite;
 }
 
 /* ---------- Keyframes ---------- */
@@ -588,6 +612,49 @@
 
 
 
+/* ---- Fullscreen confetti burst ---- */
+.confetti-fullscreen {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  overflow: hidden;
+  animation: confettiFadeOut 4s ease-out 2.5s forwards;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -24px;
+  border-radius: 3px;
+  opacity: 0;
+  animation-duration: 2800ms;
+  animation-timing-function: cubic-bezier(0.22, 0.8, 0.36, 1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes confettiFadeOut {
+  to { opacity: 0; }
+}
+
+@keyframes confettiFallCenter {
+  0%   { opacity: 0; transform: translateY(0) rotate(0deg); }
+  8%   { opacity: 1; }
+  100% { opacity: 0.6; transform: translateY(105vh) rotate(360deg); }
+}
+
+@keyframes confettiFallLeft {
+  0%   { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  8%   { opacity: 1; }
+  100% { opacity: 0.6; transform: translate(-40px, 105vh) rotate(-280deg); }
+}
+
+@keyframes confettiFallRight {
+  0%   { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  8%   { opacity: 1; }
+  100% { opacity: 0.6; transform: translate(40px, 105vh) rotate(300deg); }
+}
+
+/* legacy (unused, kept for compat) */
 .confetti-layer {
   pointer-events: none;
   position: absolute;
@@ -669,6 +736,11 @@
     padding: 48px;
   }
 
+  .deco-xs { width: 24px; height: 24px; }
+  .deco-sm { width: 38px; height: 38px; }
+  .deco-md { width: 56px; height: 56px; }
+  .deco-lg { width: 78px; height: 78px; }
+
   .splash-card,
   .landing-card,
   .confirm-card {
@@ -707,7 +779,9 @@
   .toast,
   .confirm-fullscreen,
   .confirm-card,
-  .confetti {
+  .confetti,
+  .confetti-fullscreen,
+  .confetti-piece {
     animation: none !important;
     transition: none !important;
   }

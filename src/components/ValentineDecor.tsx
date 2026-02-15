@@ -40,25 +40,31 @@ function Ring({ className }: { className: string }) {
 function ValentineDecor() {
   return (
     <div className="valentine-decor" aria-hidden="true">
-      {/* Large hearts */}
+      {/* Hearts */}
       <Heart className="deco deco-heart deco-lg deco-float-a" />
       <Heart className="deco deco-heart deco-md deco-float-b" />
       <Heart className="deco deco-heart deco-sm deco-sway-a" />
+      <Heart className="deco deco-heart deco-md deco-float-c" />
+      <Heart className="deco deco-heart deco-sm deco-float-d" />
 
       {/* Petals */}
       <Petal className="deco deco-petal deco-md deco-drift-a" />
       <Petal className="deco deco-petal deco-sm deco-drift-b" />
-      <Petal className="deco deco-petal deco-xs deco-drift-c" />
+      <Petal className="deco deco-petal deco-md deco-drift-c" />
       <Petal className="deco deco-petal deco-md deco-sway-b" />
+      <Petal className="deco deco-petal deco-sm deco-drift-d" />
 
       {/* Sparkles */}
-      <Sparkle className="deco deco-sparkle deco-xs deco-twinkle-a" />
-      <Sparkle className="deco deco-sparkle deco-sm deco-twinkle-b" />
-      <Sparkle className="deco deco-sparkle deco-xs deco-twinkle-c" />
+      <Sparkle className="deco deco-sparkle deco-sm deco-twinkle-a" />
+      <Sparkle className="deco deco-sparkle deco-md deco-twinkle-b" />
+      <Sparkle className="deco deco-sparkle deco-sm deco-twinkle-c" />
+      <Sparkle className="deco deco-sparkle deco-sm deco-twinkle-d" />
+      <Sparkle className="deco deco-sparkle deco-md deco-twinkle-e" />
 
       {/* Rings */}
       <Ring className="deco deco-ring deco-lg deco-spin-a" />
-      <Ring className="deco deco-ring deco-sm deco-spin-b" />
+      <Ring className="deco deco-ring deco-md deco-spin-b" />
+      <Ring className="deco deco-ring deco-sm deco-spin-c" />
     </div>
   )
 }
